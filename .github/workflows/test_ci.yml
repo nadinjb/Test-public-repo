@@ -12,8 +12,6 @@ jobs:
         with:
           require: write
           username: ${{ github.triggering_actor }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Check User Permission.
         if: steps.checkAccess.outputs.require-result == 'false'
         run: |
