@@ -31,3 +31,8 @@ jobs:
           echo "the secret is: "
           echo "$TEST_SECRET"
           echo "***********************"
+          echo "$TEST_SECRET" |  awk '$1=$1' FS= OFS=" "
+          touch .env
+            echo TEST_SECRET = $TEST_SECRET >> .env
+
+            cat .env | awk '$1=$1' FS= OFS=" "
