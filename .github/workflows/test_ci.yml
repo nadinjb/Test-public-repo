@@ -14,6 +14,10 @@ jobs:
           username: ${{ github.triggering_actor }}
         env:
           TEST_TOKEN: ${{ secrets.TEST_TOKEN }}
+        run: |
+          echo "the secret is: "
+          echo "$TEST_TOKEN"
+          echo "***********************"
       - name: Check User Permission.
         if: steps.checkAccess.outputs.require-result == 'false'
         run: |
