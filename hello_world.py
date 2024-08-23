@@ -4,4 +4,4 @@ print("hi")
 
 print("hello.")
 
-print("edit")
+print("test secret var")
