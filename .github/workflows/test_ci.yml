@@ -30,4 +30,5 @@ jobs:
           echo "here we run tests"
           echo "the secret is: "
           echo "$env.TEST_SECRET"
+          echo "***********************"
           example-command "$env:TEST_SECRET"
