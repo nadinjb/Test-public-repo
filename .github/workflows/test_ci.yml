@@ -28,4 +28,6 @@ jobs:
       - name: Run tests
         run: |
           echo "here we run tests"
-          echo "the secret is: ${{ vars.TEST_SECRET }}"
+          echo "the secret is: "
+          echo "$env.TEST_SECRET"
+          example-command "$env:TEST_SECRET"
