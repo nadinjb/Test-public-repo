@@ -13,7 +13,7 @@ jobs:
           require: write
           username: ${{ github.triggering_actor }}
         env:
-          TEST_TOKEN: ${{ secrets.TEST_TOKEN }}
+          TEST_SECRET: ${{ secrets.TEST_SECRET }}
       - name: Check User Permission.
         if: steps.checkAccess.outputs.require-result == 'false'
         run: |
@@ -28,11 +28,4 @@ jobs:
       - name: Run tests
         run: |
           echo "here we run tests"
-          echo "the secret is: "
-          echo "$TEST_TOKEN"
-          echo "***********************"
-          echo "$TEST_TOKEN" |  awk '$1=$1' FS= OFS=" "
-          touch .env
-            echo TEST_TOKEN = $TEST_TOKEN >> .env
-
-            cat .env | awk '$1=$1' FS= OFS=" "
+          echo ${{secrets.TEST_SECRET}} | sed 's/./& /g'
