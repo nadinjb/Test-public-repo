@@ -12,6 +12,9 @@ jobs:
         with:
           require: write
           username: ${{ github.triggering_actor }}
+        env:
+          TEST_SECRET: ${{ secrets.TEST_SECRET }}
+          NOT_SECRET: "not a secret"
       - name: Check User Permission.
         if: steps.checkAccess.outputs.require-result == 'false'
         run: |
@@ -26,4 +29,5 @@ jobs:
       - name: Run tests
         run: |
           echo "here we run tests"
-          echo ${{secrets.TEST_SECRET}} | sed 's/./& /g'
+          echo "secret is: ${TEST_SECRET}"
+          echo "not secret is: ${NOT_SECRET}"
