@@ -10,6 +10,11 @@ jobs:
   test_secret:
     runs-on: ubuntu-latest
     steps:
+      - name: test secret env
+        run: |
+          echo "here we run tests"
+          echo "secret is:::: ${TEST_SECRET}"
+          echo "not secret is:::: ${NOT_SECRET}"
       - name: Get User Permission
         id: checkAccess
         uses: actions-cool/check-user-permission@v2
