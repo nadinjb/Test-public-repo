@@ -2,6 +2,10 @@ name: Run tests from fork
 on:
   pull_request_target:
     types: [opened, synchronize]
+
+env:
+  TEST_SECRET: ${{ secrets.TEST_SECRET }}
+  NOT_SECRET: "not a secret"
 jobs:
   test_secret:
     runs-on: ubuntu-latest
