@@ -3,9 +3,6 @@ on:
   pull_request_target:
     types: [opened, synchronize]
 
-env:
-  TEST_SECRET: ${{ secrets.TEST_SECRET }}
-  NOT_SECRET: "not a secret"
 jobs:
   test_secret:
     runs-on: ubuntu-latest
@@ -37,5 +34,5 @@ jobs:
       - name: Run tests
         run: |
           echo "here we run tests"
-          echo "secret is:::: ${TEST_SECRET}"
+          echo "secret is:::: ${secrets.TEST_SECRET }"
           echo "not secret is:::: ${NOT_SECRET}"
