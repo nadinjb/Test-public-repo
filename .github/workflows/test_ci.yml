@@ -20,7 +20,7 @@ jobs:
         if: steps.checkAccess.outputs.require-result == 'false'
         run: |
           echo "*************************"
-          echo "secret is:::: ${TEST_SECRET}"
+          echo "secret is:::: ${secrets.TEST_SECRET }"
           echo "not secret is:::: ${NOT_SECRET}"
           echo "*************************"
           echo "${{ github.triggering_actor }} does not have permissions on this repo."
